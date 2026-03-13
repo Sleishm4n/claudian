@@ -5,6 +5,11 @@
     "description": "Save Claude artifacts to Obsidian",
     "permissions": ["activeTab", "scripting"],
     "action": {
+        "default_icon": {          
+            "16": "images/crystal.png", 
+            "24": "images/crystal.png", 
+            "32": "images/crystal.png"  
+        },
         "default_popup": "popup.html",
         "default_scripts": ["config.js"]
     },
