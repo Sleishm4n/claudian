@@ -24,5 +24,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
         sendResponse({ success: true, markdown, filename })
     }
+    if (request.action === "getFilename") {
+        const artifactButton = document.querySelector('[aria-label^="Open artifact:"]')
+        const rawLabel = artifactButton ? artifactButton.getAttribute("aria-label") : null
+        const filename = rawLabel ? rawLabel.replace("Open artifact: ", "") : null
+        sendResponse({ filename })
+    }
     return true
 })

@@ -1,6 +1,91 @@
+<!doctype html>
 <html>
+  <head>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: content-box;
+      }
+      html,
+      body {
+        width: 150px;
+        height: 75px;
+        background: #1a1625;
+        font-family: system-ui, sans-serif;
+      }
+      .status-bar {
+        padding: 7px 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 0.5px solid #231d35;
+      }
+      .dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #7f77dd;
+        flex-shrink: 0;
+      }
+      #artifact-name {
+        font-size: 11px;
+        color: #7f77dd;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .actions {
+        padding: 6px 14px 8px;
+      }
+      #save-btn {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        padding: 6px px;
+        background: #251f38;
+        border: 0.5px solid #3d3068;
+        border-radius: 6px;
+        color: #9d93cc;
+        font-size: 11px;
+        font-family: system-ui, sans-serif;
+        cursor: pointer;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        transition:
+          background 0.15s,
+          border-color 0.15s;
+        line-height: 1.4;
+      }
+      #save-btn:hover {
+        background: #2e2448;
+        border-color: #534ab7;
+        color: #c4bce8;
+      }
+      #status {
+        margin-top: 4px;
+        font-size: 10px;
+        text-align: center;
+        color: #4a4270;
+      }
+      #status.success {
+        color: #5dcaa5;
+      }
+      #status.error {
+        color: #f09595;
+      }
+    </style>
+  </head>
   <body>
-    <button id="save-btn">Save to Obsidian</button>
+    <div class="status-bar">
+      <div class="dot"></div>
+      <span id="artifact-name">No artifact detected</span>
+    </div>
+    <div class="actions">
+      <button id="save-btn">Save to Obsidian</button>
+      <div id="status"></div>
+    </div>
     <script src="config.js"></script>
     <script src="popup.js"></script>
   </body>
